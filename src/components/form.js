@@ -37,7 +37,7 @@ function Form() {
                         </div> */}
                     {/* </div> */}
                     <div>
-                        <h1>Signup Page</h1>
+                        <h1>Signup </h1>
 
                         <div>
                             <input type="text" placeholder="username" className="name" value={User_name}onChange={(e) => setText(e.target.value)}/>
