@@ -78,10 +78,8 @@ button {
   font-size: 25px;
   border: none;
 }
-button:hover{
-  background-color: #a702fa;
-}
-.login-button {
+
+.signup-button {
   padding-top: 25px;
 }
 
