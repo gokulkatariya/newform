@@ -1,5 +1,5 @@
 import React from 'react'
-import profile from 'D:/Reactsignupform/my-app/src/components/a.png';
+// import profile from 'D:/Reactsignupform/my-app/src/components/a.png';
 import { useState } from 'react'
 
 function Form() {
@@ -31,11 +31,11 @@ function Form() {
         <div className="main" >
             <div className="sub-main">
                 <div>
-                    <div className="imgs">
+                    {/* <div className="imgs">
                         <div className="container-image">
                             <img src={profile} alt="profile" className="profile" />
-                        </div>
-                    </div>
+                        </div> */}
+                    {/* </div> */}
                     <div>
                         <h1>Signup Page</h1>
 
