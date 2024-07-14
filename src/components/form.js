@@ -1,61 +1,76 @@
-import React from 'react'
-// import profile from 'D:/Reactsignupform/my-app/src/components/a.png';
-import { useState } from 'react'
+import React from "react";
+import { useState } from "react";
 
 function Form() {
-    const [user, setUser] = useState("");
-    const [email, setEmail] = useState("");
-    const [number, setNumber] = useState("");
-    const [address, setAddress] = useState("");
+    const [formData, setFormData] = useState({
+        user: "",
+        email: "",
+        number: "",
+        address: "",
+    });
 
-    const handleSubmit = () => {
-        fetch('', {
-            method: 'POST',
-            body: JSON.stringify({
-                User: user,
-                Email: email,
-                Number: number,
-                Address: address,
-            }),
-            headers: {
-                'Content-type': 'application/json;',
-            },
+    const handleChange = (e) => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
         })
-            .then((response) => response.json())
-            .then((json) => console.log(json));
-    }
+    };
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(formData);
+    };
 
     return (
-        <div className="main" >
+        <div className="main">
             <div className="sub-main">
                 <div>
-                    <div>
-                        <h1>Signup </h1>
+                    <form onSubmit={handleSubmit}>
                         <div>
-                            <input type="text" placeholder="username" value={user} onChange={(e) => setUser(e.target.value)} />
+                            <h1>Signup </h1>
+                            <div>
+                                <input
+                                    type="user"
+                                    placeholder="username"
+                                    onChange={handleChange}
+                                />
+                                <br />
+                            </div>
+                            <div className="second-input">
+                                <input
+                                    type="email"
+                                    placeholder="email"
+                                    onChange={handleChange}
+                                />
+                                <br />
+                            </div>
+                            <div className="third-input">
+                                <input
+                                    type="number"
+                                    placeholder="number"
+                                    onChange={handleChange}
+                                />
+                                <br />
+                            </div>
+                            <div className="five-input">
+                                <input
+                                    type="address"
+                                    placeholder="address"
+                                    onChange={handleChange}
+                                />
+                                <br />
+                            </div>
+                            <div className="signup-button">
+                                <button type="submit">Signup</button>
+                            </div>
+                            <p className="link">
+                                <a href="/">Forgot password </a>
+                            </p>
                         </div>
-                        <div className="second-input">
-                            <input type="email" placeholder="email" value={email} onChange={(e) => setEmail(e.target.value)}
-                            />
-                        </div>
-                        <div className="third-input">
-                            <input type="contact" placeholder="number" value={number} onChange={(e) => setNumber(e.target.value)} />
-                        </div>
-                        <div className="five-input">
-                            <input type="massege" placeholder="address" value={address} onChange={(e) => setAddress(e.target.value)} />
-                        </div>
-                        <div className="signup-button">
-                            <button type="submit" onClick={handleSubmit}>Signup</button>
-                        </div>
-                        <p className="link">
-                            <a href="/">Forgot password </a>
-                        </p>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
-
-    )
+    );
 }
 export default Form;
